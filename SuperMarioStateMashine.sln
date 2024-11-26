@@ -9,10 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperMarioStateMashineTests
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateMachineGenerator", "StateMachineGenerator\StateMachineGenerator.csproj", "{B9B65EF3-2C2A-453E-95D9-A0121220A769}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneratedTests", "GeneratedTests\GeneratedTests.csproj", "{5C4FACEA-3B4E-4DD8-98E4-3CEC0F49C65A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneratedCode", "GeneratedCode\GeneratedCode.csproj", "{7358F978-5407-405B-A326-3C9C7A21D56C}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,14 +27,6 @@ Global
 		{B9B65EF3-2C2A-453E-95D9-A0121220A769}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9B65EF3-2C2A-453E-95D9-A0121220A769}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9B65EF3-2C2A-453E-95D9-A0121220A769}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5C4FACEA-3B4E-4DD8-98E4-3CEC0F49C65A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5C4FACEA-3B4E-4DD8-98E4-3CEC0F49C65A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5C4FACEA-3B4E-4DD8-98E4-3CEC0F49C65A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5C4FACEA-3B4E-4DD8-98E4-3CEC0F49C65A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7358F978-5407-405B-A326-3C9C7A21D56C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7358F978-5407-405B-A326-3C9C7A21D56C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7358F978-5407-405B-A326-3C9C7A21D56C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7358F978-5407-405B-A326-3C9C7A21D56C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
