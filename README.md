@@ -1,8 +1,8 @@
-# Super Mario State Machine Generator
+# 🎮 Super Mario State Machine Generator
 
 This project demonstrates a Finite State Machine (FSM) implementation using the Super Mario power-up system as an example, and provides a generator to convert Mermaid state diagrams into C# state machine code.
 
-## Project Overview
+## 📋 Project Overview
 
 The solution consists of three main projects:
 
@@ -10,7 +10,7 @@ The solution consists of three main projects:
 2. **SuperMarioStateMashineTests**: Comprehensive unit tests for the state machine
 3. **StateMachineGenerator**: A tool to generate state machine code from Mermaid diagrams
 
-## Technical Stack
+## 🛠️ Technical Stack
 
 - .NET 9.0
 - C# with nullable reference types enabled
@@ -18,13 +18,13 @@ The solution consists of three main projects:
 - Newtonsoft.Json 13.0.3
 - System.CommandLine for CLI support
 
-## Super Mario State Machine Example
+## 🍄 Super Mario State Machine Example
 
 The Super Mario state machine is based on the power-up system from Super Mario games:
 
 ![Super Mario State Machine](supermario_statemachine.png)
 
-### Example Mermaid Diagram (mario.mmd)
+### 📊 Example Mermaid Diagram (mario.mmd)
 
 ```mermaid
 stateDiagram-v2
@@ -38,7 +38,7 @@ stateDiagram-v2
     CapeMario --> FireMario : Flower
 ```
 
-### State Machine Implementation
+### 🏗️ State Machine Implementation
 
 The example implementation demonstrates:
 
@@ -48,24 +48,45 @@ The example implementation demonstrates:
 4. **Extensible Design**: Easy to add new states or transitions
 5. **Modern C# Features**: Nullable reference types, pattern matching
 
-## State Machine Generator
+## ⚙️ State Machine Generator
 
-The generator converts Mermaid state diagrams into fully functional C# state machine code. It generates:
+The generator is a powerful tool that converts Mermaid state diagrams into fully functional C# state machine code. Here's what it can do:
 
-1. Base interface and state classes
-2. State and transition enums
-3. Main state machine class with logging support
-4. Unit tests for all states and transitions
+### 🎯 Features
 
-### Usage
+1. **Complete Solution Generation**
+   - Creates a fully structured .NET solution
+   - Generates both main library and test projects
+   - Includes solution-level README and documentation
+
+2. **State Machine Code**
+   - Generates interface and base classes
+   - Creates state-specific implementation classes
+   - Implements type-safe state transitions
+   - Adds logging support with `MarioLogger`
+
+3. **Test Generation**
+   - Creates comprehensive unit tests for all states
+   - Tests all possible transitions
+   - Verifies invalid transition handling
+   - Includes state persistence tests
+   - Tests logging functionality
+
+4. **Configuration Options**
+   - Custom namespace support
+   - Base class configuration
+   - Output directory specification
+   - Logging customization
+
+### 🚀 Usage
 
 1. Create a Mermaid state diagram file (e.g., `mario.mmd`) following the format above
 2. Run the generator:
 ```bash
-dotnet run --project StateMachineGenerator -- --input mario.mmd --output GeneratedCode --namespace MyStateMachine --baseclass Mario
+dotnet run --project StateMachineGenerator -- --input mario.mmd --output GeneratedSolution --namespace MyStateMachine --baseclass Mario
 ```
 
-### Generated Code Structure
+### 📁 Generated Code Structure
 
 The generator creates a complete state pattern implementation:
 
@@ -120,25 +141,32 @@ public class Mario
 }
 ```
 
-## Generated Project Structure
+## 📂 Generated Project Structure
 
 ```
-GeneratedCode/
-├── Mario.cs                # Main state machine class
-├── States/                 # Generated state classes
-│   ├── IMarioState.cs     # Base interface
-│   ├── MarioState.cs      # Initial state
-│   ├── SuperMarioState.cs # Powered-up state
-│   ├── FireMarioState.cs  # Fire power state
-│   └── CapeMarioState.cs  # Cape power state
-└── Tests/                 # Generated unit tests
-    ├── MarioStateTests.cs
-    ├── SuperMarioStateTests.cs
-    ├── FireMarioStateTests.cs
-    └── CapeMarioStateTests.cs
+GeneratedSolution/
+├── MarioStateMachine/           # Main library project
+│   ├── States/                  # State implementations
+│   │   ├── IMarioState.cs      # Base interface
+│   │   ├── MarioState.cs       # Initial state
+│   │   ├── SuperMarioState.cs  # Powered-up state
+│   │   ├── FireMarioState.cs   # Fire power state
+│   │   └── CapeMarioState.cs   # Cape power state
+│   ├── Mario.cs                # Main state machine class
+│   ├── MarioLogger.cs          # State transition logger
+│   └── MarioStateMachine.csproj
+├── MarioStateMachineTests/      # Test project
+│   ├── Tests/                   # Generated unit tests
+│   │   └── States/             # State-specific tests
+│   │       ├── MarioStateTests.cs
+│   │       ├── SuperMarioStateTests.cs
+│   │       ├── FireMarioStateTests.cs
+│   │       └── CapeMarioStateTests.cs
+│   └── MarioStateMachineTests.csproj
+└── MarioStateMachine.sln        # Solution file
 ```
 
-## Testing
+## 🧪 Testing
 
 Run the comprehensive test suite:
 ```bash
@@ -151,7 +179,7 @@ The test project uses:
 - Microsoft.NET.Test.Sdk 17.12.0
 - Coverlet for code coverage
 
-### Test Coverage
+### 📊 Test Coverage
 
 The generated tests verify:
 - All possible state transitions
@@ -160,7 +188,7 @@ The generated tests verify:
 - Transition logging
 - Error handling
 
-## Getting Started
+## 🚀 Getting Started
 
 1. Clone the repository
 2. Build the solution:
@@ -170,7 +198,7 @@ dotnet build
 
 3. Generate a state machine from the example:
 ```bash
-dotnet run --project StateMachineGenerator -- --input mario.mmd --output GeneratedCode --namespace MyStateMachine --baseclass Mario
+dotnet run --project StateMachineGenerator -- --input mario.mmd --output GeneratedSolution --namespace MyStateMachine --baseclass Mario
 ```
 
 4. Run the tests:
@@ -178,7 +206,7 @@ dotnet run --project StateMachineGenerator -- --input mario.mmd --output Generat
 dotnet test
 ```
 
-## Contributing
+## 🤝 Contributing
 
 Feel free to contribute by:
 1. Creating issues
@@ -186,6 +214,6 @@ Feel free to contribute by:
 3. Improving documentation
 4. Adding new features to the generator
 
-## License
+## 📄 License
 
 MIT License - feel free to use in your own projects.
