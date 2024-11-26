@@ -1,8 +1,8 @@
 using NUnit.Framework;
-using MyStateMachine;
-using MyStateMachine.States;
+using SuperMarioExample;
+using SuperMarioExample.States;
 
-namespace MyStateMachineTests.States
+namespace SuperMarioExampleTests.States
 {
     [TestFixture()]
     public class FireMarioStateTests
@@ -22,7 +22,7 @@ namespace MyStateMachineTests.States
             var result = _firemarioState.GetStateEnum();
 
             // Assert
-            Assert.AreEqual(Mario.State.FireMario, result);
+            Assert.That(result, Is.EqualTo(Mario.State.FireMario));
         }
 
         [Test()]
@@ -32,8 +32,8 @@ namespace MyStateMachineTests.States
             var result = _firemarioState.HandleMushroom();
 
             // Assert
-            Assert.IsInstanceOfType(result, typeof(FireMarioState));
-            Assert.AreEqual(Mario.State.FireMario, result.GetStateEnum());
+            Assert.That(result, Is.TypeOf<FireMarioState>());
+            Assert.That(result.GetStateEnum(), Is.EqualTo(Mario.State.FireMario));
         }
 
         [Test()]
@@ -43,8 +43,8 @@ namespace MyStateMachineTests.States
             var result = _firemarioState.HandleFlower();
 
             // Assert
-            Assert.IsInstanceOfType(result, typeof(FireMarioState));
-            Assert.AreEqual(Mario.State.FireMario, result.GetStateEnum());
+            Assert.That(result, Is.TypeOf<FireMarioState>());
+            Assert.That(result.GetStateEnum(), Is.EqualTo(Mario.State.FireMario));
         }
 
         [Test()]
@@ -54,8 +54,8 @@ namespace MyStateMachineTests.States
             var result = _firemarioState.HandleFeather();
 
             // Assert
-            Assert.IsInstanceOfType(result, typeof(CapeMarioState));
-            Assert.AreEqual(Mario.State.CapeMario, result.GetStateEnum());
+            Assert.That(result, Is.TypeOf<CapeMarioState>());
+            Assert.That(result.GetStateEnum(), Is.EqualTo(Mario.State.CapeMario));
         }
 
 

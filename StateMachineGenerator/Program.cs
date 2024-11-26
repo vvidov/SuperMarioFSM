@@ -48,6 +48,7 @@ namespace StateMachineGenerator
                     var mermaidContent = await File.ReadAllTextAsync(input.FullName);
                     var parser = new MermaidParser();
                     var definition = parser.ParseMermaid(mermaidContent);
+                    definition.InputPath = input.FullName;
 
                     var generator = new CodeGenerator(definition, ns, baseClass);
                     generator.GenerateCode(output.FullName);

@@ -1,4 +1,4 @@
-namespace MyStateMachine.States
+namespace SuperMarioExample.States
 {
     public class CapeMarioState : IMarioState
     {

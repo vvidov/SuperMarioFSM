@@ -17,6 +17,7 @@ namespace StateMachineGenerator
         public HashSet<string> Events { get; set; } = new();
         public List<StateTransition> Transitions { get; set; } = new();
         public required string InitialState { get; set; }
+        public required string InputPath { get; set; }
     }
 
     public class MermaidParser
@@ -28,7 +29,8 @@ namespace StateMachineGenerator
         {
             var definition = new StateMachineDefinition
             {
-                InitialState = string.Empty // Temporary value that will be updated during parsing
+                InitialState = string.Empty, // Temporary value that will be updated during parsing
+                InputPath = string.Empty // Will be set after parsing
             };
 
             foreach (var line in mermaidContent.Split('\n'))

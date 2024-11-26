@@ -1,14 +1,14 @@
-using MyStateMachine.States;
+using SuperMarioExample.States;
 using System;
 
-namespace MyStateMachine
+namespace SuperMarioExample
 {
     public class Mario
     {
         private IMarioState _currentState;
-        private readonly MarioLogger _logger;
+        private readonly MarioStateLogger _logger;
 
-        public Mario(MarioLogger logger = null)
+        public Mario(MarioStateLogger logger = null)
         {
             _currentState = new MarioState();
             _logger = logger;
@@ -39,7 +39,7 @@ namespace MyStateMachine
             {
                 Transition.Mushroom => _currentState.HandleMushroom(),
                 Transition.Flower => _currentState.HandleFlower(),
-                Transition.Feather => _currentState.HandleFeather()
+                Transition.Feather => _currentState.HandleFeather(),
                 _ => throw new ArgumentException($"Invalid transition: {transition}")
             };
             
