@@ -1,17 +1,35 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
+using SuperMarioExample;
+using SuperMarioExample.States;
 
-namespace ConsoleApp1.Tests
+namespace SuperMarioStateMashineTests
 {
     [TestFixture()]
     public class SuperMarioStateMashineTests
     {
+        private class TestLogger : MarioStateLogger
+        {
+            public SuperMarioStateMashine.State? LastOldState { get; private set; }
+            public SuperMarioStateMashine.State? LastNewState { get; private set; }
+            public SuperMarioStateMashine.Transition? LastTransition { get; private set; }
+
+            public override void LogStateTransition(SuperMarioStateMashine.State oldState, 
+                                                 SuperMarioStateMashine.State newState, 
+                                                 SuperMarioStateMashine.Transition transition)
+            {
+                LastOldState = oldState;
+                LastNewState = newState;
+                LastTransition = transition;
+            }
+        }
+
         [Test()]
         public void CreateSMStartStateIsMarioState()
         {
             var StartState = SuperMarioStateMashine.State.Mario;
 
             var superMarioStateMashine = new SuperMarioStateMashine();
-            Assert.AreEqual(StartState, superMarioStateMashine.FSMState);
+            Assert.That(superMarioStateMashine.FSMState, Is.EqualTo(StartState));
         }
 
         [Test()]
@@ -22,7 +40,7 @@ namespace ConsoleApp1.Tests
         {
             var superMarioStateMashine = new SuperMarioStateMashine();
             superMarioStateMashine.GetItem(transition);
-            Assert.AreEqual(expectedState, superMarioStateMashine.FSMState);
+            Assert.That(superMarioStateMashine.FSMState, Is.EqualTo(expectedState));
         }
 
         [Test()]
@@ -34,7 +52,7 @@ namespace ConsoleApp1.Tests
             var superMarioStateMashine = new SuperMarioStateMashine();
             superMarioStateMashine.GetItem(SuperMarioStateMashine.Transition.Mushroom);
             superMarioStateMashine.GetItem(transition);
-            Assert.AreEqual(expectedState, superMarioStateMashine.FSMState);
+            Assert.That(superMarioStateMashine.FSMState, Is.EqualTo(expectedState));
         }
 
         [Test()]
@@ -46,7 +64,7 @@ namespace ConsoleApp1.Tests
             var superMarioStateMashine = new SuperMarioStateMashine();
             superMarioStateMashine.GetItem(SuperMarioStateMashine.Transition.Flower);
             superMarioStateMashine.GetItem(transition);
-            Assert.AreEqual(expectedState, superMarioStateMashine.FSMState);
+            Assert.That(superMarioStateMashine.FSMState, Is.EqualTo(expected: expectedState));
         }
 
         [Test()]
@@ -58,7 +76,44 @@ namespace ConsoleApp1.Tests
             var superMarioStateMashine = new SuperMarioStateMashine();
             superMarioStateMashine.GetItem(SuperMarioStateMashine.Transition.Feather);
             superMarioStateMashine.GetItem(transition);
-            Assert.AreEqual(expectedState, superMarioStateMashine.FSMState);
+            Assert.That(superMarioStateMashine.FSMState, Is.EqualTo(expectedState));
+        }
+
+        [Test()]
+        public void TestLogger_RecordsStateTransitions()
+        {
+            // Arrange
+            var logger = new TestLogger();
+            var superMarioStateMashine = new SuperMarioStateMashine(logger);
+
+            // Act
+            superMarioStateMashine.GetItem(SuperMarioStateMashine.Transition.Mushroom);
+
+            // Assert
+            Assert.That(logger.LastOldState, Is.EqualTo(SuperMarioStateMashine.State.Mario));
+            Assert.That(logger.LastNewState, Is.EqualTo(SuperMarioStateMashine.State.SuperMario));
+            Assert.That(logger.LastTransition, Is.EqualTo(SuperMarioStateMashine.Transition.Mushroom));
+        }
+
+        [Test()]
+        public void TestLogger_HandlesNullLogger()
+        {
+            // Arrange
+            var superMarioStateMashine = new SuperMarioStateMashine(null);
+
+            // Act & Assert
+            Assert.DoesNotThrow(() => superMarioStateMashine.GetItem(SuperMarioStateMashine.Transition.Mushroom));
+        }
+
+        [Test()]
+        public void TestInvalidTransition_ThrowsArgumentException()
+        {
+            // Arrange
+            var superMarioStateMashine = new SuperMarioStateMashine();
+
+            // Act & Assert
+            Assert.Throws<ArgumentException>(() => 
+                superMarioStateMashine.GetItem((SuperMarioStateMashine.Transition)999));
         }
     }
 }

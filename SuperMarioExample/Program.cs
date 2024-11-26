@@ -1,9 +1,10 @@
-﻿// See https://aka.ms/new-console-template for more information
-using ConsoleApp1;
+// See https://aka.ms/new-console-template for more information
+using SuperMarioExample;
 
 Console.WriteLine("Hello, Super Mario FSM!");
 
-var sm = new SuperMarioStateMashine();
+var logger = new ConsoleMarioStateLogger();
+var sm = new SuperMarioStateMashine(logger);
 sm.GetItem(SuperMarioStateMashine.Transition.Mushroom);
 sm.GetItem(SuperMarioStateMashine.Transition.Mushroom);
 sm.GetItem(SuperMarioStateMashine.Transition.Feather);

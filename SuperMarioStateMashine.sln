@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuperMarioStateMashine", "ConsoleApp1\SuperMarioStateMashine.csproj", "{2312D820-C7A4-43E2-9BE6-4F0D6719750F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuperMarioStateMashine", "SuperMarioExample\SuperMarioStateMashine.csproj", "{2312D820-C7A4-43E2-9BE6-4F0D6719750F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperMarioStateMashineTests", "SuperMarioStateMashineTests\SuperMarioStateMashineTests.csproj", "{A9A65EF3-2C2A-453E-95D9-A0121220A768}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateMachineGenerator", "StateMachineGenerator\StateMachineGenerator.csproj", "{B9B65EF3-2C2A-453E-95D9-A0121220A769}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{A9A65EF3-2C2A-453E-95D9-A0121220A768}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9A65EF3-2C2A-453E-95D9-A0121220A768}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9A65EF3-2C2A-453E-95D9-A0121220A768}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9B65EF3-2C2A-453E-95D9-A0121220A769}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9B65EF3-2C2A-453E-95D9-A0121220A769}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9B65EF3-2C2A-453E-95D9-A0121220A769}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9B65EF3-2C2A-453E-95D9-A0121220A769}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

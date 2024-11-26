@@ -1,0 +1,9 @@
+stateDiagram-v2
+    [] --> Mario
+    Mario --> SuperMario : Mushroom
+    Mario --> FireMario : Flower
+    Mario --> CapeMario : Feather
+    SuperMario --> FireMario : Flower
+    SuperMario --> CapeMario : Feather
+    FireMario --> CapeMario : Feather
+    CapeMario --> FireMario : Flower
