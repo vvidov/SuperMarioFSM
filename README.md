@@ -1,5 +1,7 @@
 # 🎮 Super Mario State Machine Generator
 
+[![Build & Test](https://github.com/vvidov/SuperMarioFSM/actions/workflows/dotnet.yml/badge.svg)](https://github.com/vvidov/SuperMarioFSM/actions/workflows/dotnet.yml)
+
 This project demonstrates a Finite State Machine (FSM) implementation using the Super Mario power-up system as an example, and provides a generator to convert Mermaid state diagrams into C# state machine code.
 
 ## 📋 Project Overview
